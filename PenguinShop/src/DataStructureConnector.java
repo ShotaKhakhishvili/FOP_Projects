@@ -1,7 +1,8 @@
 public interface DataStructureConnector<T>{
+
     void addElement(List<T> list);
 
-    default boolean hasNextElement(List<T> list){
-        return list.getValue() != null;
-    }
+    boolean hasNextElement(List<T> list);
+
+    void removeNextElement();
 }

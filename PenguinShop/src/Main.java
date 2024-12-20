@@ -2,88 +2,26 @@ import java.io.IOException;
 import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Scanner;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
-import java.util.function.Supplier;
 
-class test{
-    protected int a = 3;
-    test(int a){
-
-    }
-    test(){
-
-    }
-}
-
-class test1 extends test{
-    int a = 4;
-    test1(){
-        super(3);
-    }
-
-
-}
-
-interface equ{
-    void asd();
-}
-
-class ball extends Exception{
-    @Override
-    public String getLocalizedMessage() {
-        return Arrays.toString(getStackTrace()) + ": wait! they don't love you like I love you.";
-    }
-}
-
-class bomb extends Exception{
-    @Override
-    public String getLocalizedMessage() {
-        return Arrays.toString(getStackTrace()) + ": wait! they don't love you like I love you.";
-    }
-}
-
-interface inter{
-    void fun();
-    void fun1();
-
-    default void printer(){
-        System.out.println("asd");
-    }
-}
-
-public class Main extends test1 implements inter{
-    static Supplier<String> supp;
-
-    void testing(){
-        String stri = "new";
-        supp = () -> stri;
-    }
+public class Main{
 
     public static void main(String[] args) {
-        Main a = new Main();
-        float b = 0.3f;
-        int c = 3;
-        float d = b + c;
-        a.fun();
+//        LinkedStack<Integer> stack = new LinkedStack<>(1);
+//        stack.push(3);
+//        stack.push(4);
+//        stack.push(123);
+//        System.out.println(stack.pop());
+//        System.out.println(stack.toString());
 
-        a.testing();
-
-        Consumer<String> cons = (str) -> System.out.println(str.length());
-        Predicate<Integer> pred = (i) -> i > 4;
-
-        System.out.println(pred.test(3));
-        cons.accept("abc");
-        System.out.println(supp.get());
-    }
-
-    @Override
-    public void fun() {
-
-    }
-
-    @Override
-    public void fun1() {
-
+        LinkedQueue<Integer> queue = new LinkedQueue<>(1);
+        queue.enqueue(3);
+        queue.enqueue(45);
+        System.out.println(queue.dequeue());
+        System.out.println(queue.toString());
+//        List<Integer> list = new List<>(1, null);
+//        list.add(3);
+//        list.add(5);
+//        list.add(67);
+//        System.out.println(list.toString());
     }
 }

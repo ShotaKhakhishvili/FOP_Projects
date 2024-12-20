@@ -1,11 +1,8 @@
 public class LinkedStack<T> implements Stack<T>{
-    List<T> first;
-    List<T> last;
-
+    private List<T> first;
 
     LinkedStack(T element){
         first = new List<T>(element);
-        last = first;
     }
 
     @Override
@@ -16,30 +13,21 @@ public class LinkedStack<T> implements Stack<T>{
 
     @Override
     public T pop() {
-        if(first.getValue() == null)
+        if(first == null)
             return null;
-        if(first.getNext() == null){
-            T temp = first.getValue();
-            first.setValue(null);
-            return temp;
-        }
 
-        List<T> temp = first;
-        while(temp.getNext().getNext() != null)
-            temp = temp.getNext();
-
-        T answer = last.getValue();
-        last = temp;
-        return answer;
+        T t = first.getValue();
+        first = first.getNext();
+        return t;
     }
 
     @Override
     public void push(T element) {
-        if(first.getNext() == null)
-            first.add(element);
+        first = new List<>(element, first);
+    }
 
-        last.add(element);
-        last.setValue(element);
-        last.setNext(null);
+    @Override
+    public String toString() {
+        return first.toString();
     }
 }

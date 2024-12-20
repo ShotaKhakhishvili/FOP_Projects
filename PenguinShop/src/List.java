@@ -5,7 +5,7 @@ public class List<T> implements DataStructure{
     public List(){
         this(null,null);
     }
-    
+
     public List(T element){
         this(element,null);
     }
@@ -32,13 +32,8 @@ public class List<T> implements DataStructure{
     }
 
     public void add(T element){
-        if(value == null)
-            value = element;
-        else if(this.next == null){
-            this.next = new List<T>(element);
-        }
-        else
-            this.next.add(element);
+        next = new List<>(this.value, next);
+        this.value = element;
     }
 
     public int getLength(){
@@ -72,7 +67,7 @@ public class List<T> implements DataStructure{
 
         String answer = "[" + this.value;
         for(List<T> temp = this.next; temp != null; temp = temp.next){
-            answer += "," + temp.value;
+         answer += "," + temp.value;
         }
         return answer + "]";
     }
